@@ -10,6 +10,10 @@ server {
   ssl_certificate {{ cert_file }};
   ssl_certificate_key {{ key_file }};
 
+{% set str = server_name %}
+{% set target = conf.get(test2).get(test3).get(test4) %}
+  {{ target }}
+
   location / {
     try_files $uri $uri/ =404;
   }
